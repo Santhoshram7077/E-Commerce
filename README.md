@@ -32,7 +32,7 @@ frontend/                      # React frontend
 ├── src/
 │   ├── components/          # Reusable UI components
 │   ├── pages/               # Main pages (Home, Product, Cart, etc.)
-│   ├── api/                 # API calls (e.g., Axios)
+│   ├── api/                 # API calls 
 │   ├── hooks/               # Custom hooks
 │   ├── contexts/            # Global state (React Context)
 │   ├── routes/              # Routing setup
