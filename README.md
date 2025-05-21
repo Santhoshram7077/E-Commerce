@@ -64,3 +64,11 @@ backend/                      # Spring Boot backend
 └── pom.xml
 ```
 
+| Field       | Type    | Description              |
+|-------------|---------|--------------------------|
+| ProductID   | string  | Unique identifier        |
+| Name        | string  | Product name             |
+| Description | string  | Product description      |
+| Price       | number  | Product price            |
+| Category    | string  | Product category         |
+| ImageURL    | string  | URL to product image     |
