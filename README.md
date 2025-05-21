@@ -22,76 +22,29 @@ This is a Java-based web application of an e-commerce website; customers can bro
 - Manage goods, including creating a new item, revising an existing item, or deleting an item.
 - Manage orders, including tracking order status and taking delivery actions.
 
-
-├── frontend/                      # React frontend
-   ├── public/                   # Static files (index.html, images)
-   ├── src/
-   │   ├── components/          # Reusable UI components
-   │   ├── pages/               # Main pages (Home, Product, Cart, etc.)
-   │   ├── api/                 # API calls (e.g., Axios)
-   │   ├── hooks/               # Custom hooks
-   │   ├── contexts/            # Global state (React Context)
-   │   ├── routes/              # Routing setup
-   │   ├── services/            # Business logic (e.g., auth)
-   │   ├── styles/              # Global styles
-   │   ├── App.js               # Root component
-   │   └── index.js             # Entry point
-   ├── .env
-   └── package.json
-
-
-├── backend/                      # Spring Boot backend
-    ├── src/
-    │   ├── main/
-    │   │   ├── java/com/ecommerce/
-    │   │   │   ├── EcommerceApplication.java
-    │   │   │   ├── config/      # App & security configs
-    │   │   │   ├── controller/  # API endpoints
-    │   │   │   ├── model/       # JPA entities
-    │   │   │   ├── repository/  # Data access
-    │   │   │   ├── service/     # Business logic
-    │   │   │   └── dto/         # Request/response objects
-    │   └── resources/
-    │       └── application.properties
-    ├── test/                    # Unit tests
-    └── pom.xml
-
 # Project Structure
 
-## Frontend (React)
-frontend/ # React frontend
-├── public/ # Static files (index.html, images)
+## Frontend 
+ 
+```
+frontend/                      # React frontend
+├── public/                   # Static files (index.html, images)
 ├── src/
-│   ├── components/ # Reusable UI components
-│   ├── pages/ # Main pages (Home, Product, Cart, etc.)
-│   ├── api/ # API calls (e.g., Axios)
-│   ├── hooks/ # Custom hooks
-│   ├── contexts/ # Global state (React Context)
-│   ├── routes/ # Routing setup
-│   ├── services/ # Business logic (e.g., auth)
-│   ├── styles/ # Global styles
-│   ├── App.js # Root component
-│   └── index.js # Entry point
+│   ├── components/          # Reusable UI components
+│   ├── pages/               # Main pages (Home, Product, Cart, etc.)
+│   ├── api/                 # API calls (e.g., Axios)
+│   ├── hooks/               # Custom hooks
+│   ├── contexts/            # Global state (React Context)
+│   ├── routes/              # Routing setup
+│   ├── services/            # Business logic (e.g., auth)
+│   ├── styles/              # Global styles
+│   ├── App.js               # Root component
+│   └── index.js             # Entry point
 ├── .env
 └── package.json
-## Backend (Spring Boot)
-backend/ # Spring Boot backend
-├── src/
-│   ├── main/
-│   │   ├── java/com/ecommerce/
-│   │   │   ├── EcommerceApplication.java
-│   │   │   ├── config/ # App & security configs
-│   │   │   ├── controller/ # API endpoints
-│   │   │   ├── model/ # JPA entities
-│   │   │   ├── repository/ # Data access
-│   │   │   ├── service/ # Business logic
-│   │   │   └── dto/ # Request/response objects
-│   └── resources/
-│       └── application.properties
-├── test/ # Unit tests
-└── pom.xml
+```
 
-# Spring Boot Backend Folder Structure
+## Backend
  
 ```
 backend/                      # Spring Boot backend
@@ -106,4 +59,8 @@ backend/                      # Spring Boot backend
 │   │   │   ├── service/        # Business logic
 │   │   │   └── dto/            # Request/response objects
 │   │   └── resources/
+│   │       └── application.properties
+├── test/                      # Unit tests
+└── pom.xml
+```
 
