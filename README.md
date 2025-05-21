@@ -6,7 +6,7 @@ This is a Java-based web application of an e-commerce website; customers can bro
 
 **Front-end**: React.js, HTML, CSS
 
-**Back-end**: SpringBoot, JPA(Hibernate), MySQL
+**Back-end**: Java, SpringBoot, JPA(Hibernate), MySQL
 
 ## Features
 
@@ -55,3 +55,19 @@ This is a Java-based web application of an e-commerce website; customers can bro
     │       └── application.properties
     ├── test/                    # Unit tests
     └── pom.xml
+
+├── backend/ # Spring Boot backend
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/ecommerce/
+│   │   │   │   ├── EcommerceApplication.java
+│   │   │   │   ├── config/ # App & security configs
+│   │   │   │   ├── controller/ # API endpoints
+│   │   │   │   ├── model/ # JPA entities
+│   │   │   │   ├── repository/ # Data access
+│   │   │   │   ├── service/ # Business logic
+│   │   │   │   └── dto/ # Request/response objects
+│   │   └── resources/
+│   │       └── application.properties
+│   ├── test/ # Unit tests
+│   └── pom.xml
