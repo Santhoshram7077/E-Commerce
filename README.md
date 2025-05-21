@@ -91,3 +91,19 @@ backend/ # Spring Boot backend
 ├── test/ # Unit tests
 └── pom.xml
 
+# Spring Boot Backend Folder Structure
+ 
+```
+backend/                      # Spring Boot backend
+├── src/
+│   ├── main/
+│   │   ├── java/com/ecommerce/
+│   │   │   ├── EcommerceApplication.java
+│   │   │   ├── config/         # App & security configs
+│   │   │   ├── controller/     # API endpoints
+│   │   │   ├── model/          # JPA entities
+│   │   │   ├── repository/     # Data access
+│   │   │   ├── service/        # Business logic
+│   │   │   └── dto/            # Request/response objects
+│   │   └── resources/
+
