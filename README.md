@@ -163,45 +163,43 @@ This is a Java-based web application of an e-commerce website; customers can bro
 
 ## API Endpoints
 
-### Product
+# API Endpoints
 
--GET /products – List all products
--GET /products/{id} – Get product by ID
--POST /products – Create a new product
--PUT /products/{id} – Update a product
--DELETE /products/{id} – Delete a product
--GET /products/category/{category} – Get products by category
+## Product
+- **GET /products** – List all products
+- **GET /products/{id}** – Get product by ID
+- **POST /products** – Create a new product
+- **PUT /products/{id}** – Update a product
+- **DELETE /products/{id}** – Delete a product
+- **GET /products/category/{category}** – Get products by category
 
-### CartItem
+## CartItem
+- **GET /cart/{userId}** – Get cart items for a user
+- **POST /cart/{userId}** – Add item to cart
+- **PUT /cart/{userId}/{cartItemId}** – Update quantity
+- **DELETE /cart/{userId}/{cartItemId}** – Remove item from cart
+- **DELETE /cart/{userId}** – Clear cart
 
--GET /cart/{userId} – Get cart items for a user
--POST /cart/{userId} – Add item to cart
--PUT /cart/{userId}/{cartItemId} – Update quantity
--DELETE /cart/{userId}/{cartItemId} – Remove item from cart
--DELETE /cart/{userId} – Clear cart
+## Order
+- **POST /orders** – Place a new order
+- **GET /orders/{userId}** – Get all orders for a user
+- **GET /orders/details/{orderId}** – Get order details
+- **PUT /orders/status/{orderId}** – Update order status
+- **PUT /orders/payment/{orderId}** – Update payment status
 
-### Order
+## User
+- **POST /auth/register** – Register a new user
+- **POST /auth/login** – Login
+- **GET /users/{userId}** – Get user profile
+- **PUT /users/{userId}** – Update user profile
 
--POST /orders – Place a new order
--GET /orders/{userId} – Get all orders for a user
--GET /orders/details/{orderId} – Get order details
--PUT /orders/status/{orderId} – Update order status
--PUT /orders/payment/{orderId} – Update payment status
+## Admin
+- **GET /admin/products** – View/manage all products
+- **GET /admin/orders** – View all orders
+- **GET /admin/users** – View all users
+- **GET /admin/reports/sales** – Generate sales reports
+- **GET /admin/reports/analytics** – View analytics
 
-### User
-
--POST /auth/register – Register a new user
--POST /auth/login – Login
--GET /users/{userId} – Get user profile
--PUT /users/{userId} – Update user profile
-
-### Admin
-
--GET /admin/products – View/manage all products
--GET /admin/orders – View all orders
--GET /admin/users – View all users
--GET /admin/reports/sales – Generate sales reports
--GET /admin/reports/analytics – View analytics
 
 # Project Structure
 
