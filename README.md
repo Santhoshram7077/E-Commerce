@@ -163,9 +163,7 @@ This is a Java-based web application of an e-commerce website; customers can bro
 
 ## API Endpoints
 
-# API Endpoints
-
-## Product
+### Product
 - **GET /products** – List all products
 - **GET /products/{id}** – Get product by ID
 - **POST /products** – Create a new product
@@ -173,27 +171,27 @@ This is a Java-based web application of an e-commerce website; customers can bro
 - **DELETE /products/{id}** – Delete a product
 - **GET /products/category/{category}** – Get products by category
 
-## CartItem
+### CartItem
 - **GET /cart/{userId}** – Get cart items for a user
 - **POST /cart/{userId}** – Add item to cart
 - **PUT /cart/{userId}/{cartItemId}** – Update quantity
 - **DELETE /cart/{userId}/{cartItemId}** – Remove item from cart
 - **DELETE /cart/{userId}** – Clear cart
 
-## Order
+### Order
 - **POST /orders** – Place a new order
 - **GET /orders/{userId}** – Get all orders for a user
 - **GET /orders/details/{orderId}** – Get order details
 - **PUT /orders/status/{orderId}** – Update order status
 - **PUT /orders/payment/{orderId}** – Update payment status
 
-## User
+### User
 - **POST /auth/register** – Register a new user
 - **POST /auth/login** – Login
 - **GET /users/{userId}** – Get user profile
 - **PUT /users/{userId}** – Update user profile
 
-## Admin
+### Admin
 - **GET /admin/products** – View/manage all products
 - **GET /admin/orders** – View all orders
 - **GET /admin/users** – View all users
@@ -201,7 +199,7 @@ This is a Java-based web application of an e-commerce website; customers can bro
 - **GET /admin/reports/analytics** – View analytics
 
 
-# Project Structure
+## Project Structure
 
 ## Backend
  
