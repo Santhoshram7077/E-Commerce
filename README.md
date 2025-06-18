@@ -97,6 +97,21 @@ The application exposes the following RESTful endpoints for managing products:
 * **Description:** Deletes a product by its ID.
 * **Controller Method:** `ProductController.deleteProduct(Long id)`
 
-## Project Structure
+# E-Commerce Project Structure
 
-ecommerce/ ├── src/ │ ├── main/ │ │ ├── java/ │ │ │ └── com.example.ecommerce/ │ │ │ ├── controller/ # REST Controllers │ │ │ ├── model/ # Entity Classes │ │ │ ├── repository/ # JPA Repositories │ │ │ └── service/ # Business Logic │ │ └── resources/ │ │ ├── application.properties # Configuration │ │ ├── static/ # Static Resources │ │ └── templates/ ├── pom.xml # Maven Configuration └── README.md
+ecommerce/
+├── src/
+│   ├── main/
+│       ├── java/
+│       │   └── com.example.ecommerce/
+│       │       ├── controller/       # REST Controllers
+│       │       ├── model/            # Entity Classes
+│       │       ├── repository/       # JPA Repositories
+│       │       └── service/          # Business Logic
+│       └── resources/
+│           ├── application.properties # Configuration
+│           ├── static/               # Static Resources
+│           └── templates/            # Templates 
+├── pom.xml                            # Maven Configuration
+└── README.md
+
