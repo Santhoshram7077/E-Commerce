@@ -97,7 +97,7 @@ The application exposes the following RESTful endpoints for managing products:
 * **Description:** Deletes a product by its ID.
 * **Controller Method:** `ProductController.deleteProduct(Long id)`
 
-##  Module Structure
+##  File Structure
 
 ```
 ecommerce/
