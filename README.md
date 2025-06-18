@@ -1,223 +1,102 @@
-# E-Commerce
+# Ecommerce Application
 
-This is a Java-based web application of an e-commerce website; customers can browse items, manage carts and orders, and update delivery information; admin can manage products/orders.
+## Project Overview
 
-## Technologies
+The **Ecommerce Application** is a Spring Boot-based RESTful web service designed to manage products in an e-commerce platform. It provides endpoints for CRUD (Create, Read, Update, Delete) operations on products and integrates with a Eureka Discovery Service for service registration and discovery. The application uses MySQL as the database and follows a layered architecture for better maintainability and scalability.
 
-**Front-end**: React.js, HTML, CSS
+## Architecture
 
-**Back-end**: Java, SpringBoot, JPA(Hibernate), MySQL
+The project follows a **layered architecture**:
 
-## Features
+* **Controller Layer:** Handles HTTP requests and responses.
+* **Service Layer:** Contains business logic and interacts with the repository layer.
+* **Repository Layer:** Manages database operations using Spring Data JPA.
+* **Model Layer:** Defines the data structure for the application.
 
-### Users
-- Sign up for a new user account.
-- Change user information (e.g., delivery address/email).
-- Search items by name and category; browse items and their detail page.
-- Add items to Cart; Submit Order by selecting items on Cart.
-- Manage orders: keep track of orders' details, including delivery status, and take action on orders.
+## Key Features:
 
-### Admin
-- Register for a new user account.
-- Manage goods, including creating a new item, revising an existing item, or deleting an item.
-- Manage orders, including tracking order status and taking delivery actions.
+* **Spring Boot:** Simplifies application setup and development.
+* **Spring Data JPA:** Provides easy integration with the MySQL database.
+* **Eureka Client:** Registers the service with a Eureka Discovery Server.
+* **RESTful Endpoints:** Exposes endpoints for managing products.
+* **Swagger/OpenAPI:** Provides API documentation using SpringDoc.
 
-## Team Members
+## Database Table
 
-| Role                   | Name        |
-|------------------------|-------------|
-| Product Owner/Developer | Amritanshu  |
-| Scrum Master/Developer  | Achyuth     |
-| Developer               | Santhoshram |
-| Developer               | Kamal Yadav |
+The application uses a single table, `Product`, in the MySQL database. The table structure is as follows:
 
+| Column Name | Data Type | Description                   |
+| :---------- | :-------- | :---------------------------- |
+| `productId` | `BIGINT`  | Primary key, auto-generated.  |
+| `name`      | `VARCHAR` | Name of the product.          |
+| `description` | `VARCHAR` | Description of the product.   |
+| `price`     | `DOUBLE`  | Price of the product.         |
+| `category`  | `VARCHAR` | Category of the product.      |
+| `imageURL`  | `VARCHAR` | URL of the product image.     |
+| `quantity`  | `INT`     | Quantity available.           |
 
-# Sprint Plan
+## Endpoints
 
-## Sprint 1: Project Setup and Initial Development
+The application exposes the following RESTful endpoints for managing products:
 
-- **Duration**: 1 week
-- **Goals**:
-  - Set up project repositories and environments.
-  - Initialize frontend and backend frameworks.
-  - Implement user registration and login functionality.
-    
-- **Key Tasks**:
-  - Set up React and Spring Boot projects.
-  - Configure database connections.
-  - Develop user authentication module.
-  - Create initial wireframes for user interface.
+**Base URL:** `http://localhost:8087/api/products`
 
-## Sprint 2: Product Management Module
+### Endpoints and Controllers
 
-- **Duration**: 1 week
-- **Goals**:
-  - Develop product management features.
-  - Implement CRUD operations for products.
-  - Create product listing and detail pages.
-    
-- **Key Tasks**:
-  - Design product entity and database schema.
-  - Develop product creation, update, and delete functionalities.
-  - Implement product listing and detail views in frontend.
-  - Validate and store product data in backend.
+#### 1. Get All Products
 
-## Sprint 3: Shopping Cart and Order Management Modules
+* **Endpoint:** `GET /api/products`
+* **Description:** Retrieves a list of all products.
+* **Controller Method:** `ProductController.getAllProducts()`
 
-- **Duration**: 1 week
-- **Goals**:
-  - Implement shopping cart functionalities.
-  - Develop order processing and tracking features.
-  - Implement payment processing.
-    
-- **Key Tasks**:
-  - Design cart item and order entities and database schema.
-  - Develop add/remove item functionalities for the cart.
-  - Create shopping cart page in frontend.
-  - Develop order placement and tracking functionalities.
-  - Integrate payment gateway.
-  - Create order confirmation and tracking pages in frontend.
+#### 2. Get Product by ID
 
-## Sprint 4: Admin Dashboard Module
+* **Endpoint:** `GET /api/products/{id}`
+* **Description:** Retrieves a product by its ID.
+* **Controller Method:** `ProductController.getProductById(Long id)`
 
-- **Duration**: 1 week
-- **Goals**:
-  - Implement admin dashboard functionalities.
-  - Allow admins to manage products, orders, and users.
-    
-- **Key Tasks**:
-  - Design admin entity and database schema.
-  - Develop admin management features.
-  - Create admin dashboard interface.
-  - Generate sales analytics and reports.
+#### 3. Create a New Product
 
-## Sprint 5: Testing, Deployment, and Final Review
+* **Endpoint:** `POST /api/products`
+* **Description:** Creates a new product.
+* **Request Body:**
 
-- **Duration**: 1 week
-- **Goals**:
-  - Perform comprehensive testing.
-  - Deploy the application locally.
-  - Finalize the application and launch the platform.
-    
-- **Key Tasks**:
-  - Conduct unit, integration, and end-to-end testing.
-  - Fix bugs and optimize performance.
-  - Deploy frontend and backend locally.
-  - Prepare deployment documentation.
-  - Review and finalize all features.
-  - Conduct final testing.
-  - Launch the application.
-  - Monitor and gather user feedback.
+    ```json
+    {
+      "name": "Product Name",
+      "description": "Product Description",
+      "price": 100.0,
+      "category": "Category Name",
+      "imageURL": "[http://example.com/image.jpg](http://example.com/image.jpg)",
+      "quantity": 10
+    }
+    ```
+* **Controller Method:** `ProductController.createProduct(Product product)`
 
-## Entities
+#### 4. Update an Existing Product
 
-### Admin Entity
-| Field       | Type    | Description                  |
-|-------------|---------|------------------------------|
-| AdminID     | string  | Unique admin identifier      |
-| Name        | string  | Admin name                   |
-| Role        | string  | Role (e.g., superadmin)      |
-| Permissions | array   | List of allowed actions      |
+* **Endpoint:** `PUT /api/products/{id}`
+* **Description:** Updates an existing product by its ID.
+* **Request Body:**
 
-### User Entity
+    ```json
+    {
+      "name": "Updated Name",
+      "description": "Updated Description",
+      "price": 120.0,
+      "category": "Updated Category",
+      "imageURL": "[http://example.com/updated-image.jpg](http://example.com/updated-image.jpg)",
+      "quantity": 15
+    }
+    ```
+* **Controller Method:** `ProductController.updateProduct(Long id, Product product)`
 
-| Field           | Type    | Description                     |
-|-----------------|---------|---------------------------------|
-| UserID          | string  | Unique user identifier          |
-| Name            | string  | Full name                       |
-| Email           | string  | Email address                   |
-| Password        | string  | Hashed password                 |
-| ShippingAddress | string  | Default shipping address        |
-| PaymentDetails  | string  | Stored payment method info      |
+#### 5. Delete a Product
 
-### Product Entity
-
-| Field       | Type    | Description              |
-|-------------|---------|--------------------------|
-| ProductID   | string  | Unique identifier        |
-| Name        | string  | Product name             |
-| Description | string  | Product description      |
-| Price       | number  | Product price            |
-| Category    | string  | Product category         |
-| ImageURL    | string  | URL to product image     |
-
-### Order Entity
-
-| Field           | Type    | Description                        |
-|-----------------|---------|------------------------------------|
-| OrderID         | string  | Unique order identifier            |
-| UserID          | string  | ID of the user placing the order   |
-| TotalPrice      | number  | Total order price                  |
-| ShippingAddress | string  | Delivery address                   |
-| OrderStatus     | string  | Status: pending/shipped/delivered |
-| PaymentStatus   | string  | Status: paid/unpaid/failed         |
-
-### CartItem Entity
-
-| Field       | Type    | Description              |
-|-------------|---------|--------------------------|
-| CartItemID  | string  | Unique identifier        |
-| ProductID   | string  | Linked product ID        |
-| Quantity    | number  | Quantity of the product  |
-| TotalPrice  | number  | Total price for the item |
-
-## API Endpoints
-
-### Product
-- **GET /products** – List all products
-- **GET /products/{id}** – Get product by ID
-- **POST /products** – Create a new product
-- **PUT /products/{id}** – Update a product
-- **DELETE /products/{id}** – Delete a product
-- **GET /products/category/{category}** – Get products by category
-
-### CartItem
-- **GET /cart/{userId}** – Get cart items for a user
-- **POST /cart/{userId}** – Add item to cart
-- **PUT /cart/{userId}/{cartItemId}** – Update quantity
-- **DELETE /cart/{userId}/{cartItemId}** – Remove item from cart
-- **DELETE /cart/{userId}** – Clear cart
-
-### Order
-- **POST /orders** – Place a new order
-- **GET /orders/{userId}** – Get all orders for a user
-- **GET /orders/details/{orderId}** – Get order details
-- **PUT /orders/status/{orderId}** – Update order status
-- **PUT /orders/payment/{orderId}** – Update payment status
-
-### User
-- **POST /auth/register** – Register a new user
-- **POST /auth/login** – Login
-- **GET /users/{userId}** – Get user profile
-- **PUT /users/{userId}** – Update user profile
-
-### Admin
-- **GET /admin/products** – View/manage all products
-- **GET /admin/orders** – View all orders
-- **GET /admin/users** – View all users
-- **GET /admin/reports/sales** – Generate sales reports
-- **GET /admin/reports/analytics** – View analytics
-
+* **Endpoint:** `DELETE /api/products/{id}`
+* **Description:** Deletes a product by its ID.
+* **Controller Method:** `ProductController.deleteProduct(Long id)`
 
 ## Project Structure
 
-## Backend
- 
-```
-backend/                      # Spring Boot backend
-├── src/
-│   ├── main/
-│   │   ├── java/com/ecommerce/
-│   │   │   ├── EcommerceApplication.java
-│   │   │   ├── config/         # App & security configs
-│   │   │   ├── controller/     # API endpoints
-│   │   │   ├── model/          # JPA entities
-│   │   │   ├── repository/     # Data access
-│   │   │   ├── service/        # Business logic
-│   │   │   └── dto/            # Request/response objects
-│   │   └── resources/
-│   │       └── application.properties
-├── test/                      # Unit tests
-└── pom.xml
-```
-
+ecommerce/ ├── src/ │ ├── main/ │ │ ├── java/ │ │ │ └── com.example.ecommerce/ │ │ │ ├── controller/ # REST Controllers │ │ │ ├── model/ # Entity Classes │ │ │ ├── repository/ # JPA Repositories │ │ │ └── service/ # Business Logic │ │ └── resources/ │ │ ├── application.properties # Configuration │ │ ├── static/ # Static Resources │ │ └── templates/ ├── pom.xml # Maven Configuration └── README.md
