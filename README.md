@@ -1,6 +1,6 @@
 # Ecommerce Application
 
-## Project Overview
+## Module Overview
 
 The **Ecommerce Application** is a Spring Boot-based RESTful web service designed to manage products in an e-commerce platform. It provides endpoints for CRUD (Create, Read, Update, Delete) operations on products and integrates with a Eureka Discovery Service for service registration and discovery. The application uses MySQL as the database and follows a layered architecture for better maintainability and scalability.
 
@@ -97,8 +97,9 @@ The application exposes the following RESTful endpoints for managing products:
 * **Description:** Deletes a product by its ID.
 * **Controller Method:** `ProductController.deleteProduct(Long id)`
 
-# E-Commerce Project Structure
+##  Module Structure
 
+```
 ecommerce/
 ├── src/
 │   ├── main/
@@ -114,4 +115,4 @@ ecommerce/
 │           └── templates/            # Templates 
 ├── pom.xml                            # Maven Configuration
 └── README.md
-
+```
