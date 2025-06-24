@@ -2,10 +2,41 @@
 
 ## Module Overview
 
-The **Ecommerce Application** is a Spring Boot-based RESTful web service designed to manage products in an e-commerce platform. It provides endpoints for CRUD (Create, Read, Update, Delete) operations on products and integrates with a Eureka Discovery Service for service registration and discovery. The application uses MySQL as the database and follows a layered architecture for better maintainability and scalability.
+The Product Module is a Spring Boot-based RESTful web service designed to manage products within an e-commerce platform. It provides endpoints for standard CRUD (Create, Read, Update, Delete) operations on product entities. This module integrates with a Eureka Discovery Service for its own service registration and for discovering other necessary services. It utilizes MySQL as its persistent data store and adheres to a layered architecture for enhanced maintainability and scalability.
 
 ## Architecture
 
+### Component Architecture
+
+The diagram depicts the high-level structural breakdown of the Product service, highlighting its layers and external connections.
+
+```mermaid
+graph TD
+    B[User Controller] --> C[User Service]
+    C --> D[User Repository]
+    D --> E[User Database]
+    B -- Registers and Discovers --> F[Eureka Discovery Service]
+```
+### Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant ProductController
+    participant ProductService
+    participant ProductRepository
+    participant ProductDatabase
+
+    User->>ProductController: Requests product details
+    ProductController->>ProductService: Retrieves product information
+    ProductService->>ProductRepository: Queries product data
+    ProductRepository->>ProductDatabase: Interacts with stored product data
+    ProductDatabase-->>ProductRepository: Product data result
+    ProductRepository-->>ProductService: Product data confirmed
+    ProductService-->>ProductController: Product data ready
+    ProductController-->>User: Product details delivered
+
+```
 The project follows a **layered architecture**:
 
 * **Controller Layer:** Handles HTTP requests and responses.
