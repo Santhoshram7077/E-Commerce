@@ -22,9 +22,7 @@ The Product Module is a Spring Boot-based RESTful web service designed to manage
     mvn spring-boot:run
     ```
 
-## Architecture
-
-### Component Architecture
+### Component Diagram
 
 The diagram depicts the high-level structural breakdown of the Product service, highlighting its layers and external connections.
 
