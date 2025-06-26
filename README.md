@@ -4,6 +4,24 @@
 
 The Product Module is a Spring Boot-based RESTful web service designed to manage products within an e-commerce platform. It provides endpoints for standard CRUD (Create, Read, Update, Delete) operations on product entities. This module integrates with a Eureka Discovery Service for its own service registration and for discovering other necessary services. It utilizes MySQL as its persistent data store and adheres to a layered architecture for enhanced maintainability and scalability.
 
+## How to Run the Program
+
+1. **Clone the Repository**
+   Run the following command to build the project:
+   ```bash
+   git clone https://github.com/Santhoshram7077/E-Commerce.git
+   ```
+2. **Build the Project**  
+    Run the following command to build the project:  
+    ```bash
+    mvn clean install
+    ```
+ 3. **Run the Application Locally**  
+    Execute the following command to start the service locally:  
+    ```bash
+    mvn spring-boot:run
+    ```
+
 ## Architecture
 
 ### Component Architecture
