@@ -1,28 +1,81 @@
 # Ecommerce Application
 
-## Module Overview
+# Table of Contents
+1.  [Module Overview](#1-module-overview)
+2.  [How to Run the Program](#2-how-to-run-the-program)
+3.  [Component Diagram](#3-component-diagram)
+4.  [Sequence Diagram](#4-sequence-diagram)
+5.  [Layered architecture](#5-layered-architecture)
+6.  [Database Table](#6-database-table)
+7.  [Endpoints](#7-endpoints)
+8.  [File Structure](#8-file-structure)
+
+---
+
+# Ecommerce Application
+
+### 1. Module Overview
 
 The Product Module is a Spring Boot-based RESTful web service designed to manage products within an e-commerce platform. It provides endpoints for standard CRUD (Create, Read, Update, Delete) operations on product entities. This module integrates with a Eureka Discovery Service for its own service registration and for discovering other necessary services. It utilizes MySQL as its persistent data store and adheres to a layered architecture for enhanced maintainability and scalability.
 
-## How to Run the Program
+### 2. How to Run the Program
+
+2.1.  **Clone the Repository**
+
+    Run the following command to build the project:
+    ```bash
+    git clone [https://github.com/Santhoshram7077/E-Commerce.git](https://github.com/Santhoshram7077/E-Commerce.git)
+    ```
+2.2.  **Build the Project**
+
+    Run the following command to build the project:
+    ```bash
+    mvn clean install
+    ```
+2.3.  **Run the Application Locally**
+
+    Execute the following command to start the service locally:
+    ```bash
+    mvn spring-boot:run
+    ```
+
+### 3. Component Diagram
+
+The diagram depicts the high-level structural breakdown of the Product service, highlighting its layers and external connections.
+
+```mermaid
+graph TD
+    B[User Controller] --> C[User Service]
+    C --> D[User Repository]
+    D --> E[User Database]
+    B -- Registers and Discovers --> F[Eureka Discovery Service]
+
+### 1. Module Overview
+
+The Product Module is a Spring Boot-based RESTful web service designed to manage products within an e-commerce platform. It provides endpoints for standard CRUD (Create, Read, Update, Delete) operations on product entities. This module integrates with a Eureka Discovery Service for its own service registration and for discovering other necessary services. It utilizes MySQL as its persistent data store and adheres to a layered architecture for enhanced maintainability and scalability.
+
+### 2. How to Run the Program
 
 1. **Clone the Repository**
+   
    Run the following command to build the project:
    ```bash
    git clone https://github.com/Santhoshram7077/E-Commerce.git
    ```
-2. **Build the Project**  
+2. **Build the Project**
+   
     Run the following command to build the project:  
     ```bash
     mvn clean install
     ```
- 3. **Run the Application Locally**  
+ 3. **Run the Application Locally**
+    
     Execute the following command to start the service locally:  
     ```bash
     mvn spring-boot:run
     ```
 
-### Component Diagram
+### 3. Component Diagram
 
 The diagram depicts the high-level structural breakdown of the Product service, highlighting its layers and external connections.
 
@@ -33,7 +86,7 @@ graph TD
     D --> E[User Database]
     B -- Registers and Discovers --> F[Eureka Discovery Service]
 ```
-### Sequence Diagram
+### 4. Sequence Diagram
 
 ```mermaid
 sequenceDiagram
@@ -53,6 +106,9 @@ sequenceDiagram
     ProductController-->>User: Product details delivered
 
 ```
+
+### 5. Layered architecture
+
 The project follows a **layered architecture**:
 
 * **Controller Layer:** Handles HTTP requests and responses.
@@ -60,7 +116,7 @@ The project follows a **layered architecture**:
 * **Repository Layer:** Manages database operations using Spring Data JPA.
 * **Model Layer:** Defines the data structure for the application.
 
-## Key Features:
+#### Key Features:
 
 * **Spring Boot:** Simplifies application setup and development.
 * **Spring Data JPA:** Provides easy integration with the MySQL database.
@@ -68,7 +124,7 @@ The project follows a **layered architecture**:
 * **RESTful Endpoints:** Exposes endpoints for managing products.
 * **Swagger/OpenAPI:** Provides API documentation using SpringDoc.
 
-## Database Table
+### 6. Database Table
 
 The application uses a single table, `Product`, in the MySQL database. The table structure is as follows:
 
@@ -82,13 +138,11 @@ The application uses a single table, `Product`, in the MySQL database. The table
 | `imageURL`  | `VARCHAR` | URL of the product image.     |
 | `quantity`  | `INT`     | Quantity available.           |
 
-## Endpoints
+### 7. Endpoints
 
 The application exposes the following RESTful endpoints for managing products:
 
 **Base URL:** `http://localhost:8087/api/products`
-
-### Endpoints and Controllers
 
 #### 1. Get All Products
 
@@ -144,7 +198,7 @@ The application exposes the following RESTful endpoints for managing products:
 * **Description:** Deletes a product by its ID.
 * **Controller Method:** `ProductController.deleteProduct(Long id)`
 
-##  File Structure
+### 8. File Structure
 
 ```
 ecommerce/
