@@ -1,4 +1,4 @@
-# Ecommerce Application
+# Product Module
 
 ## Table of Contents
 1.  [Module Overview](#1-module-overview)
